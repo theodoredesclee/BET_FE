@@ -1,3 +1,5 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 import pickle
 import sys
@@ -5,8 +7,6 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 from src.config import STOCK_PATH
 from src.config import image_logo
-from save_load import download_df_from_gcs
-
 order_dataframes = {}
 
 def generate_order_summary(basket, user, total):
@@ -30,4 +30,4 @@ def generate_order_summary(basket, user, total):
 def load_logo():
     return image_logo
 def load_wine_inventory():
-    return  download_df_from_gcs(bucket_name="bet-project-1", source_blob="STOCK.csv")
+    return pd.read_csv(STOCK_PATH)
