@@ -1,13 +1,14 @@
 import re
+import requests
 import os
 import pandas as pd
 import streamlit as st
 import google.generativeai as genai
 from difflib import get_close_matches
 import sys
-from src.api.backend.sommelier_backend import WineRecommender
 from pathlib import Path
-from src.api.backend.sommelier_backend import load_wine_inventory, load_logo
+from src.front_end_fct import load_wine_inventory, load_logo
+
 
 # --- Setup ---
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
@@ -72,9 +73,28 @@ user_input = st.chat_input("What kind of wine are you looking for?")
 if user_input:
     st.session_state.chat_history.append(("user", user_input))
 
-    recommender = WineRecommender(wine_df)
-    response_text = recommender.get_recommendations(user_input, st.session_state.chat_history)
-    suggestions = recommender.extract_wine_matches(response_text)
+    # Send user input to FastAPI backend
+    api_url = "https://app-289249351425.europe-west1.run.app/recommend"  # Change if deployed elsewhere
+    payload = {
+        "customer_description": user_input,
+        "chat_history": st.session_state.chat_history
+    }
+    try:
+        r = requests.post(api_url, json=payload)
+        if r.status_code == 200:
+            data = r.json()
+            response_text = data.get("recommendations", "No recommendations found.")
+            suggestions = data.get("suggestions", [])
+        else:
+            response_text= "Sorry, there was an error with the recommendation service."
+            suggestions = []
+    except Exception as e:
+        response_text = f"Error contacting the API: {e}"
+        suggestions = []
+
+    #recommender = WineRecommender(wine_df)
+    #response_text = recommender.get_recommendations(user_input, st.session_state.chat_history)
+    #suggestions = recommender.extract_wine_matches(response_text)
 
     # Save suggestions and show message
     st.session_state.latest_suggestions = suggestions

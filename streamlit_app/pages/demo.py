@@ -41,7 +41,7 @@ if st.button("Manual Run"):
 
     # Run the POST request to your FastAPI endpoint
     try:
-        response = requests.get('http://127.0.0.1:8000/run_metrics')
+        response = requests.get('https://app-289249351425.europe-west1.run.app/run_metrics')
         if response.status_code == 200:
             st.success("Manual run completed successfully!")
         else:

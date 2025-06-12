@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 import json
 sys.path.append(str(Path(__file__).resolve().parents[1]))
-from src.api.backend.order_summary_backend import generate_order_summary
+from src.front_end_fct import generate_order_summary
 
 st.set_page_config(page_title="Order Summary", page_icon="✅")
 st.title("✅ Order Confirmation")
@@ -25,6 +25,8 @@ user = order["user_info"]
 total = order["total"]
 
 # --- Show Order Summary ---
+
+
 summary = generate_order_summary(basket, user, total)
 
 st.subheader("🛍️ Items Ordered")
@@ -61,7 +63,7 @@ def save_order_to_dict(basket):
 basket = save_order_to_dict(basket)
 
 st.write(basket)
-requests.post('http://127.0.0.1:8000/new_orders' , json =basket)
+requests.post('https://app-289249351425.europe-west1.run.app/new_orders' , json =basket)
 
 #save_orders_dict(basket, ORDERS_PATH)
 
