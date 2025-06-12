@@ -195,4 +195,7 @@ cython_debug/
 
 
 # Streamlit keys
-.streamlit/
+streamlit_app/.streamlit/secrets.toml
+
+# GC keys
+src/.front_end/secrets.toml
