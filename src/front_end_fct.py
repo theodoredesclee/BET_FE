@@ -1,5 +1,3 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 import pickle
 import sys
