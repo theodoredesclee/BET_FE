@@ -49,13 +49,11 @@ if len(st.session_state.chat_history) == 0:
             flex-direction: column;
         }
         </style>
-        <div class="centered-box">""", unsafe_allow_html=True)
-    st.image(BOT_AVATAR, width=150)
-
-    st.markdown("""
+        <div class="centered-box">
             <h2>🍷 Meet Serge</h2>
-            <h3>Your Personal Sommelier</h2>
-            <img src="serge.png" class="serge-img" alt="Serge the Sommelier">
+            <h3>Your Personal Sommelier</h2>""", unsafe_allow_html=True)
+    st.image(BOT_AVATAR, width=150)
+    st.markdown("""
             <p>Hey! Ask me what kind of wine you're looking for.</p>
         </div>
     """, unsafe_allow_html=True)
