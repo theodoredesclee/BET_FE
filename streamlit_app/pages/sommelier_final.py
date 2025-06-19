@@ -7,7 +7,7 @@ import google.generativeai as genai
 from difflib import get_close_matches
 import sys
 from pathlib import Path
-from src.front_end_fct import load_wine_inventory, load_logo, load_serge
+from src.front_end_fct import load_wine_inventory, load_logo
 
 
 # --- Setup ---
