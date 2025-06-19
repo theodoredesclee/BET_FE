@@ -7,7 +7,7 @@ import google.generativeai as genai
 from difflib import get_close_matches
 import sys
 from pathlib import Path
-sys.path.append(str(Path(__file__).resolve().parents[2]))
+sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 from src.front_end_fct import load_wine_inventory, load_serge
 
