@@ -50,8 +50,9 @@ if len(st.session_state.chat_history) == 0:
         }
         </style>
         <div class="centered-box">
-            <h2>🍷 Meet Serge: Your Personal Sommelier</h2>
-            <p>Ask me what kind of wine you're looking for.</p>
+            <h2>🍷 Meet Serge</h2>
+            <h2>Your Personal Sommelier</h2>
+            <p>Hey! Ask me what kind of wine you're looking for.</p>
         </div>
     """, unsafe_allow_html=True)
 
