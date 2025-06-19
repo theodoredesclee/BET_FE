@@ -8,6 +8,7 @@ project_root = Path(__file__).resolve().parents[1]
 csv_path_ratings = project_root / 'data' / 'raw' / 'XWines_Slim_150K_ratings.csv'
 csv_path_wines = project_root / 'data' / 'raw' / 'XWines_Full_100K_wines.csv'
 image_logo = project_root / 'data' / 'image' / 'BET_logo.png'
+image_serge = project_root / 'data' / 'image' / 'serge.png'
 BET_STOCK_PATH = project_root / "data" / "stock"
 PROCESSED_DATA_PATH = project_root / "data" / "processed" / 'time_series.csv'
 PROCESSED_DATA_PATH_WINE = project_root / "data" / "processed" / 'grapes_clustered.csv'

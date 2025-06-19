@@ -7,14 +7,14 @@ import google.generativeai as genai
 from difflib import get_close_matches
 import sys
 from pathlib import Path
-from src.front_end_fct import load_wine_inventory, load_logo
+from src.front_end_fct import load_wine_inventory, load_logo, load_serge
 
 
 # --- Setup ---
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 wine_df = load_wine_inventory()
-BOT_AVATAR = load_logo()
+BOT_AVATAR = load_serge()
 
 st.set_page_config(page_title="Sommelier Chatbot", layout="centered")
 st.markdown("""
@@ -49,9 +49,13 @@ if len(st.session_state.chat_history) == 0:
             flex-direction: column;
         }
         </style>
-        <div class="centered-box">
+        <div class="centered-box">""", unsafe_allow_html=True)
+    st.image(BOT_AVATAR, width=150))
+
+    st.markdown("""
             <h2>🍷 Meet Serge</h2>
             <h3>Your Personal Sommelier</h2>
+            <img src="serge.png" class="serge-img" alt="Serge the Sommelier">
             <p>Hey! Ask me what kind of wine you're looking for.</p>
         </div>
     """, unsafe_allow_html=True)
