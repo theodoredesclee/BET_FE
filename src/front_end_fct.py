@@ -32,6 +32,5 @@ def load_logo():
     return image_logo
 def load_wine_inventory():
     return pd.read_csv(STOCK_PATH)
-
 def load_serge():
     return image_serge

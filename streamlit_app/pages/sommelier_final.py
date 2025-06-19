@@ -8,6 +8,7 @@ from difflib import get_close_matches
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[1]))
+
 from src.front_end_fct import load_wine_inventory, load_serge
 
 
@@ -15,7 +16,7 @@ from src.front_end_fct import load_wine_inventory, load_serge
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 wine_df = load_wine_inventory()
-BOT_AVATAR = load_serge()
+BOT_AVATAR = image_serge = load_serge()
 
 st.set_page_config(page_title="Sommelier Chatbot", layout="centered")
 st.markdown("""
