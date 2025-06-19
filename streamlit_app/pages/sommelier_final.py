@@ -50,7 +50,7 @@ if len(st.session_state.chat_history) == 0:
         }
         </style>
         <div class="centered-box">""", unsafe_allow_html=True)
-    st.image(BOT_AVATAR, width=150))
+    st.image(BOT_AVATAR, width=150)
 
     st.markdown("""
             <h2>🍷 Meet Serge</h2>
