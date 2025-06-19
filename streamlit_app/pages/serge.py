@@ -50,14 +50,14 @@ if len(st.session_state.chat_history) == 0:
         }
         </style>
         <div class="centered-box">
-            <h2>🍷 Meet Serge: Your Personal Sommelier</h2>
+            <h2>🍷 Welcome to the Sommelier Chatbot</h2>
             <p>Ask me what kind of wine you're looking for.</p>
         </div>
     """, unsafe_allow_html=True)
 
 # --- Show Chat Header and History ---
 if len(st.session_state.chat_history) > 0:
-    st.markdown("<h1 style='text-align: center;'>🍷 Serge the Sommelier</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>🍷 Sommelier Chatbot</h1>", unsafe_allow_html=True)
     for role, msg in st.session_state.chat_history:
         if role == "user":
             with st.chat_message("user"):
